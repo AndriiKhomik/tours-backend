@@ -1,26 +1,27 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const tourSchema = new mongoose.Schema({
-  bandName: {
-    type: String,
-    required: true
+  band: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'Band'
   },
   title: {
     type: String,
-    required: true
+    required: true,
   },
   date: {
-    type: Date,
-    required: true
+    type: String,
+    required: true,
   },
   tourDescription: {
     type: String,
-    required: true
+    required: true,
   },
   cities: {
     type: [String],
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
-module.exports = mongoose.model('Tour', tourSchema)
+module.exports = mongoose.model("Tour", tourSchema);

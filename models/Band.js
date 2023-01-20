@@ -1,17 +1,17 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const bandSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   foundedDate: {
-    type: Date,
-    required: true
+    type: String,
+    required: true,
   },
   albums: {
-    type: [String]
-  }
-})
+    type: [String],
+  },
+});
 
-module.exports = mongoose.model('Band', bandSchema)
+module.exports = mongoose.model("Band", bandSchema);
