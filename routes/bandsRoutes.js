@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const bandsController = require("../controllers/bandsController");
 
-router.route("/")
+router
+  .route("/")
   .get(bandsController.getAllBands)
   .post(bandsController.createNewBand);
 
