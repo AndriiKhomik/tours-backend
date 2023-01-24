@@ -10,17 +10,16 @@ const getAllTours = async (req, res) => {
 
   // if no client
   if (!tours?.length) {
-    return res.status(400).json({message: "No client found"});
+    return res.status(400).json({message: "No tours found"});
   }
 
-  const tourWithBand = await Promise.all(
+  const tourWithUser = await Promise.all(
     tours.map(async (tour) => {
-      const band = await User.findById(tour.band).lean().exec();
-      return {...tour, name: band.name};
-    })
+      const user = await User.findById(tour.band).lean().exec();
+      return {...tour, band: user?.name};
+    }),
   );
-
-  res.json(tourWithBand);
+  res.json(tourWithUser);
 };
 
 // @desc Create new tour
