@@ -1,9 +1,9 @@
 const Tour = require("../models/Tour");
-const Band = require("../models/Band");
+const User = require("../models/User");
 
 // @desc Get all client
 // @route GET /client
-// @access Common ?????
+// @access Common
 const getAllTours = async (req, res) => {
   // Get all client from MongoDB
   const tours = await Tour.find().lean();
@@ -15,7 +15,7 @@ const getAllTours = async (req, res) => {
 
   const tourWithBand = await Promise.all(
     tours.map(async (tour) => {
-      const band = await Band.findById(tour.band).lean().exec();
+      const band = await User.findById(tour.band).lean().exec();
       return {...tour, name: band.name};
     })
   );

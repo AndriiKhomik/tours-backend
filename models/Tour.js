@@ -4,7 +4,7 @@ const tourSchema = new mongoose.Schema({
   band: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: "Band",
+    ref: "User",
   },
   title: {
     type: String,

@@ -1,17 +1,16 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-  username: {
+  name: {
     type: String,
     required: true,
   },
-  password: {
+  foundedDate: {
     type: String,
     required: true,
   },
-  roles: {
+  albums: {
     type: [String],
-    default: ["Guest"],
   },
 });
 
