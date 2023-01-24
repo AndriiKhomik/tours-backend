@@ -25,6 +25,7 @@ app.use(cookieParser());
 app.use("/", express.static(path.join(__dirname, "public")));
 
 app.use("/", require("./routes/root"));
+app.use("/auth", require("./routes/authRoutes"));
 app.use("/tours", require("./routes/toursRoutes"));
 app.use("/users", require("./routes/usersRoutes"));
 
@@ -49,6 +50,6 @@ mongoose.connection.on("error", (err) => {
   console.log(err);
   logEvents(
     `${err.no}\t${err.code}\t${err.syscall}\t${err.hostname}`,
-    "mongoErrLog.log"
+    "mongoErrLog.log",
   );
 });
