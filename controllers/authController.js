@@ -23,7 +23,7 @@ const login = async (req, res) => {
   if (!match) return res.status(401).json({message: "Unauthorized"});
 
   const accessToken = jwt.sign({
-    UserInfo: {
+    "UserInfo": {
       name: foundUser.name,
     },
   }, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "15m"});
@@ -62,7 +62,7 @@ const refresh = (req, res) => {
     if (!foundUser) return res.status(401).json({message: "Unauthorized"});
 
     const accessToken = jwt.sign({
-      userInfo: {
+      "UserInfo": {
         name: foundUser.name,
       },
     }, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "15m"});
