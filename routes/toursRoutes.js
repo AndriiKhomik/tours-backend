@@ -6,7 +6,7 @@ router
   .route("/")
   .get(toursController.getAllTours)
   .post(toursController.createNewTour)
-  .patch(toursController.updateTour)
+  .patch(toursController.updateTour, toursController.addReview)
   .delete(toursController.deleteTour);
 
 module.exports = router;

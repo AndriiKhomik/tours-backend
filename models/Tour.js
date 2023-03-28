@@ -7,6 +7,10 @@ const tourSchema = new mongoose.Schema(
       required: true,
       ref: "User",
     },
+    bandName: {
+      type: String,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
@@ -28,9 +32,13 @@ const tourSchema = new mongoose.Schema(
     reviews: [
       {
         description: { type: String },
-        reviewDate: { type: Date, required: true },
+        reviewDate: { type: Date },
       },
     ],
+    marks: {
+      type: [Number],
+      default: 0,
+    },
     rating: {
       type: Number,
     },
