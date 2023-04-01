@@ -20,7 +20,6 @@ const userSchema = new mongoose.Schema(
     },
     foundedDate: {
       type: String,
-      required: true,
     },
     albums: {
       type: [String],
