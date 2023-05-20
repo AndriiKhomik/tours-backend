@@ -28,6 +28,7 @@ app.use("/", require("./routes/root"));
 app.use("/auth", require("./routes/authRoutes"));
 app.use("/tours", require("./routes/toursRoutes"));
 app.use("/users", require("./routes/usersRoutes"));
+app.use("/expenses", require("./routes/expensesRoutes"));
 
 app.all("*", (req, res) => {
   res.status(404);

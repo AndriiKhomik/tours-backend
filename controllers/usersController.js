@@ -20,13 +20,13 @@ const createNewUser = async (req, res) => {
   }
 
   // Check duplicates name
-  const duplicate = await User.findOne({ email })
+  const duplicate = await User.findOne({ name })
     .collation({ locale: "en", strength: 2 })
     .lean()
     .exec();
 
   if (duplicate) {
-    return res.status(409).json({ message: "Duplicate email" });
+    return res.status(409).json({ message: "Duplicate name" });
   }
 
   // Hash password
